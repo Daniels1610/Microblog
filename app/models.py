@@ -13,7 +13,6 @@ class User(UserMixin, db.Model):
     posts = db.relationship('Post', backref='author', lazy='dynamic')
 
     def set_password(self, password_text):
-        sal = "Esto es las sal del cetys"
         self.password_hash = generate_password_hash(password_text+self.__sal)
 
     def check_password(self, password_text):
